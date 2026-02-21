@@ -7,7 +7,7 @@ export default defineConfig({
     name: 'default',
     title: 'Hackathon',
 
-    projectId: '<your-project-id>',
+    projectId: 'jqtpyzxf',
     dataset: 'production',
 
     plugins: [
