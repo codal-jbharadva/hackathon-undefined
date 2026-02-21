@@ -34,7 +34,7 @@ export function AppSidebar() {
         </div>
         {!collapsed && (
           <span className="text-sm font-semibold text-foreground tracking-tight">
-            BridgeAI
+            Jira Buddy
           </span>
         )}
       </div>
