@@ -20,8 +20,14 @@ export default function Summary() {
     setError("");
 
     try {
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+      
+      if (!apiBaseUrl) {
+        throw new Error("API base URL not configured in environment variables");
+      }
+
       const response = await fetch(
-        "https://d73b-111-93-81-198.ngrok-free.app/process-summary",
+        `${apiBaseUrl}/process-summary`,
         {
           method: "POST",
           headers: {

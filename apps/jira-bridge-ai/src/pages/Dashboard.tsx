@@ -121,17 +121,23 @@ export default function Dashboard() {
       setLoading(true);
       setError("");
       
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+      
+      if (!apiBaseUrl) {
+        throw new Error("API base URL not configured in environment variables");
+      }
+
       // Fetch from the comments endpoint with CORS mode
       const response = await fetch(
-        "https://d73b-111-93-81-198.ngrok-free.app/comments",
+        `${apiBaseUrl}/comments`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Accept": "application/json",
           },
-          body: JSON.stringify({
-            summary: "",
-          }),
+          mode: "cors",
+          credentials: "omit",
         }
       );
 
